@@ -44,4 +44,4 @@ Project guidance for AI coding agents working in **avenora**.
 - Path alias `@/` maps to the project root.
 - kebab-case for filenames and folders.
 - `_components` folders for route-local components; feature code in `features/<name>/`.
-- Run `npm run lint` (`biome check .`) and `npm run format` (`biome format --write .`) before committing.
+- Run `bun run lint` (`biome check .`) and `bun run format` (`biome format --write .`) before committing.
