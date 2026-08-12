@@ -152,6 +152,18 @@
   line-height: 1em;
 }
 
+html.hero-js:not(.hero-anim-ready) [data-hero-anim] {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.hero-js:not(.hero-anim-ready) [data-hero-anim] {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
 @media (max-width: 991px) {
   .reference-hero-title {
     font-size: 28vw;

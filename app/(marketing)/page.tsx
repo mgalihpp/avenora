@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { HeroAnimation } from "./_components/hero-animation";
 import { HeroVideo } from "./_components/hero-video";
 
 const navItems = [
@@ -41,6 +42,7 @@ export default function Home() {
       </div>
 
       <div
+        data-hero-anim="title"
         aria-hidden="true"
         className="reference-hero-title absolute left-1/2 top-[14vh] z-[1] w-full -translate-x-1/2 select-none whitespace-nowrap bg-[linear-gradient(185deg,#fff_50.59%,#9990_90%)] bg-clip-text text-center text-transparent"
       >
@@ -100,11 +102,15 @@ export default function Home() {
 
         <div className="grid items-end gap-10 pt-[12vh] lg:grid-cols-[minmax(0,1fr)_25.5rem] lg:gap-16 lg:pt-[42vh]">
           <section className="max-w-[37rem]">
-            <h1 className="reference-hero-heading text-white">
+            <h1
+              data-hero-anim="heading"
+              className="reference-hero-heading text-white"
+            >
               Tailored journeys for travelers who want more than a standard
               trip.
             </h1>
             <Link
+              data-hero-anim="button"
               href="#destinations"
               className="group mt-6 inline-flex items-center gap-6 rounded-full bg-white p-2 pl-8 font-display text-base font-semibold text-black transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
             >
@@ -113,7 +119,10 @@ export default function Home() {
             </Link>
           </section>
 
-          <aside className="flex w-full max-w-[25.5rem] flex-col items-center gap-4 rounded-[1.6rem] bg-white px-3 pb-3 pt-7 font-display text-black shadow-2xl shadow-[#03122f]/35 max-[991px]:max-w-[22rem] max-[767px]:max-w-64 max-[767px]:pt-[1.125rem] max-[479px]:max-w-none lg:mb-0">
+          <aside
+            data-hero-anim="card"
+            className="flex w-full max-w-[25.5rem] flex-col items-center gap-4 rounded-[1.6rem] bg-white px-3 pb-3 pt-7 font-display text-black shadow-2xl shadow-[#03122f]/35 max-[991px]:max-w-[22rem] max-[767px]:max-w-64 max-[767px]:pt-[1.125rem] max-[479px]:max-w-none lg:mb-0"
+          >
             <div className="flex flex-col items-center gap-2 text-center">
               <div className="flex items-center gap-3">
                 <span className="size-1.5 shrink-0 rounded-full bg-[#303bff]" />
@@ -132,6 +141,7 @@ export default function Home() {
           </aside>
         </div>
       </div>
+      <HeroAnimation />
     </main>
   );
 }
