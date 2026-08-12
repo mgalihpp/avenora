@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { HeroAnimation } from "./_components/hero-animation";
 import { HeroVideo } from "./_components/hero-video";
+import { MobileNav } from "./_components/mobile-nav";
 
 const navItems = [
   { label: "Home", href: "/", active: true },
@@ -44,13 +45,13 @@ export default function Home() {
       <div
         data-hero-anim="title"
         aria-hidden="true"
-        className="reference-hero-title absolute left-1/2 top-[14vh] z-[1] w-full -translate-x-1/2 select-none whitespace-nowrap bg-[linear-gradient(185deg,#fff_50.59%,#9990_90%)] bg-clip-text text-center text-transparent"
+        className="reference-hero-title absolute left-1/2 top-[15vh] z-[1] w-full -translate-x-1/2 select-none whitespace-nowrap bg-[linear-gradient(185deg,#fff_50.59%,#9990_90%)] bg-clip-text text-center text-transparent min-[992px]:top-[14vh]"
       >
         Travelo
       </div>
 
       <div className="relative z-10 mx-auto flex min-h-svh w-full max-w-[82rem] flex-col px-4 pb-8 pt-6 sm:px-4 sm:pt-8">
-        <header className="flex items-center justify-between gap-5">
+        <header className="relative flex items-center justify-between gap-5">
           <Link
             href="/"
             className="font-display text-2xl font-semibold leading-[1.2] text-white transition-opacity hover:opacity-75 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
@@ -60,7 +61,7 @@ export default function Home() {
 
           <nav
             aria-label="Main navigation"
-            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full bg-white/10 p-1 backdrop-blur-md md:flex"
+            className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 rounded-full bg-white/10 p-1 backdrop-blur-md min-[992px]:flex"
           >
             {navItems.map((item) => (
               <Link
@@ -75,33 +76,17 @@ export default function Home() {
 
           <Link
             href="#destinations"
-            className="group flex items-center gap-6 rounded-full bg-white p-2 pl-8 font-display text-base font-semibold text-black transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="group hidden items-center gap-6 rounded-full bg-white p-2 pl-8 font-display text-base font-semibold text-black transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white min-[992px]:flex"
           >
-            <span className="hidden sm:inline">Start Exploring</span>
-            <span className="sm:hidden">Explore</span>
+            <span>Start Exploring</span>
             <ArrowButton />
           </Link>
+
+          <MobileNav items={navItems} />
         </header>
 
-        <div className="mt-8 flex items-center justify-center md:hidden">
-          <nav
-            aria-label="Mobile navigation"
-            className="flex w-full max-w-sm items-center justify-between rounded-full bg-white/10 p-1 font-display text-xs backdrop-blur-md"
-          >
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className={`rounded-full px-3 py-2 transition-colors ${item.active ? "bg-white font-medium text-black" : "text-white/90 hover:bg-white hover:text-black"}`}
-              >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-
-        <div className="grid items-end gap-10 pt-[12vh] lg:grid-cols-[minmax(0,1fr)_25.5rem] lg:gap-16 lg:pt-[42vh]">
-          <section className="max-w-[37rem]">
+        <div className="flex flex-col items-center gap-[1.5rem] pt-[22vh] min-[480px]:flex-row min-[480px]:items-center min-[480px]:justify-between min-[480px]:gap-7 min-[768px]:items-end min-[768px]:gap-10 min-[768px]:pt-[18vh] lg:gap-16 lg:pt-[42vh]">
+          <section className="min-w-0 max-w-[37rem]">
             <h1
               data-hero-anim="heading"
               className="reference-hero-heading text-white"
@@ -112,7 +97,7 @@ export default function Home() {
             <Link
               data-hero-anim="button"
               href="#destinations"
-              className="group mt-6 inline-flex items-center gap-6 rounded-full bg-white p-2 pl-8 font-display text-base font-semibold text-black transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              className="group mt-6 inline-flex items-center gap-6 rounded-full bg-white p-2 pl-8 font-display text-base font-semibold text-black transition-transform hover:scale-[1.02] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white max-[479px]:mt-4"
             >
               <span>Explore Destination</span>
               <ArrowButton />
@@ -121,9 +106,9 @@ export default function Home() {
 
           <aside
             data-hero-anim="card"
-            className="flex w-full max-w-[25.5rem] flex-col items-center gap-4 rounded-[1.6rem] bg-white px-3 pb-3 pt-7 font-display text-black shadow-2xl shadow-[#03122f]/35 max-[991px]:max-w-[22rem] max-[767px]:max-w-64 max-[767px]:pt-[1.125rem] max-[479px]:max-w-none lg:mb-0"
+            className="flex w-full flex-col items-center gap-4 rounded-[1.6rem] bg-white px-3 pb-3 pt-7 font-display text-black shadow-2xl shadow-[#03122f]/35 min-[480px]:w-auto min-[480px]:max-w-64 min-[768px]:max-w-[22rem] min-[992px]:max-w-[25.5rem] max-[991px]:rounded-[1.5rem] max-[767px]:pt-[1.125rem]"
           >
-            <div className="flex flex-col items-center gap-2 text-center">
+            <div className="flex flex-col items-center gap-2 text-center max-[767px]:px-2">
               <div className="flex items-center gap-3">
                 <span className="size-1.5 shrink-0 rounded-full bg-[#303bff]" />
                 <h2 className="text-xl font-medium leading-[1.2]">
@@ -135,7 +120,7 @@ export default function Home() {
                 services
               </p>
             </div>
-            <div className="relative aspect-[1.28] w-full max-w-[24.125rem] overflow-hidden rounded-2xl bg-[#496d91] max-[479px]:max-w-none">
+            <div className="relative h-[18.9375rem] w-full max-w-[24.125rem] overflow-hidden rounded-[1.25rem] bg-[#496d91] max-[991px]:h-[17rem] max-[767px]:h-48 max-[479px]:h-[17rem] max-[479px]:max-w-none">
               <HeroVideo />
             </div>
           </aside>
