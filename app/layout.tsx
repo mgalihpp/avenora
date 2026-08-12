@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Instrument_Sans, Inter_Tight } from "next/font/google";
 import "./globals.css";
 import { TRPCReactProvider } from "@/lib/trpc/provider";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+const instrumentSans = Instrument_Sans({
+  variable: "--font-instrument-sans",
+  subsets: ["latin"],
+});
+const interTight = Inter_Tight({
+  variable: "--font-inter-tight",
+  subsets: ["latin"],
+});
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
@@ -22,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${instrumentSans.variable} ${interTight.variable} ${geistMono.variable} font-sans antialiased`}
       >
         <TRPCReactProvider>{children}</TRPCReactProvider>
       </body>

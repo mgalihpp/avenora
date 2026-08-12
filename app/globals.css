@@ -65,6 +65,8 @@
 }
 
 @theme inline {
+  --font-sans: var(--font-instrument-sans), sans-serif;
+  --font-display: var(--font-inter-tight), sans-serif;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -104,5 +106,81 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.reference-navlink {
+  background-color: #ffffff0f;
+  border-radius: 999px;
+  color: white;
+  font-family: var(--font-inter-tight), sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2em;
+  padding: 0.75rem 1rem;
+  backdrop-filter: blur(5px);
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.reference-navlink:hover,
+.reference-navlink-active,
+.reference-navlink-active:hover {
+  background-color: white;
+  color: black;
+}
+
+.reference-navlink-active,
+.reference-navlink-active:hover {
+  font-weight: 500;
+}
+
+.reference-hero-title {
+  font-family: Arial, sans-serif;
+  font-size: 27vw;
+  font-weight: 700;
+  letter-spacing: normal;
+  line-height: 0.7em;
+}
+
+.reference-hero-heading {
+  font-family: Arial, sans-serif;
+  font-size: 3.75rem;
+  font-weight: 400;
+  letter-spacing: -0.17rem;
+  line-height: 1em;
+}
+
+@media (max-width: 991px) {
+  .reference-hero-title {
+    font-size: 28vw;
+  }
+
+  .reference-hero-heading {
+    font-size: 3.25rem;
+    letter-spacing: -0.12rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .reference-hero-title {
+    font-size: 28vw;
+  }
+
+  .reference-hero-heading {
+    font-size: 2.75rem;
+    letter-spacing: -0.1rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .reference-hero-title {
+    font-size: 28vw;
+  }
+
+  .reference-hero-heading {
+    font-size: 2.25rem;
+    letter-spacing: -0.09rem;
   }
 }
