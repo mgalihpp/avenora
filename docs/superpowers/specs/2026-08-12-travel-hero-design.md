@@ -6,13 +6,13 @@ Replace the scaffold marketing page with a responsive, screenshot-inspired Aveno
 
 ## Visual Direction
 
-- Full-viewport mountain image using the existing `public/hero.webp` asset.
+- Full-viewport mountain image using a visual asset from the Avenora Webflow site, with the existing `public/hero.webp` as a local fallback.
 - Layered blue-to-cyan gradient and dark lower vignette for readable white content.
 - Transparent top navigation with a white active `Home` pill and soft translucent inactive pills.
 - Large, low-opacity `Travelo` display word behind the foreground content.
 - Left-aligned headline: “Tailored journeys for travelers who want more than a standard trip”.
 - White rounded `Explore Destination` CTA with a blue circular arrow affordance.
-- Right floating white card with a blue bullet, vacation-planning copy, image panel, and pause control.
+- Right floating white card with a blue bullet, vacation-planning copy, media panel sourced from the Avenora Webflow site, and pause control.
 
 ## Responsive Behavior
 
@@ -31,7 +31,8 @@ Replace the scaffold marketing page with a responsive, screenshot-inspired Aveno
 - Replace the current marketing page and marketing layout presentation only.
 - Keep auth, dashboard, tRPC, Prisma, and shadcn primitives unchanged.
 - Use CSS/Tailwind for gradients, positioning, sizing, and responsive behavior.
-- Avoid adding external image dependencies; use the checked-in hero asset for reliable local rendering.
+- Prefer the supplied Avenora Webflow image/video elements for visual fidelity. Keep `public/hero.webp` as a fallback so the page remains usable if remote media is unavailable.
+- If a remote video asset is used, it is muted, autoplaying, looping, and plays inline; the visible pause control remains presentational unless playback state is explicitly implemented.
 
 ## Verification
 
