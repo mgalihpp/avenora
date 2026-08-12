@@ -1,0 +1,10 @@
+import { SettingsForm } from "./_components/settings-form";
+
+export default function SettingsPage() {
+  return (
+    <div className="space-y-4">
+      <h1 className="text-2xl font-semibold">Settings</h1>
+      <SettingsForm />
+    </div>
+  );
+}
