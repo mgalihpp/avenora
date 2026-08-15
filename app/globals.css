@@ -165,8 +165,16 @@ html.hero-js:not(.destinations-anim-ready) [data-destinations-anim] {
   opacity: 0;
 }
 
+html.hero-js:not(.packages-anim-ready) [data-packages-anim] {
+  opacity: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html.hero-js:not(.destinations-anim-ready) [data-destinations-anim] {
+    opacity: 1;
+  }
+
+  html.hero-js:not(.packages-anim-ready) [data-packages-anim] {
     opacity: 1;
   }
 }

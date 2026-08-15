@@ -97,6 +97,7 @@ export function Destinations() {
   return (
     <DestinationsAnimation>
       <section
+        id="destinations"
         aria-labelledby="destinations-heading"
         className="pb-20 sm:pb-28"
       >

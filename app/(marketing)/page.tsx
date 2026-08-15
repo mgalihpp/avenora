@@ -5,6 +5,7 @@ import { Destinations } from "./_components/destinations";
 import { HeroAnimation } from "./_components/hero-animation";
 import { HeroVideo } from "./_components/hero-video";
 import { MobileNav } from "./_components/mobile-nav";
+import { Packages } from "./_components/packages";
 import { TravoraIntro } from "./_components/travora-intro";
 
 const navItems = [
@@ -125,6 +126,7 @@ export default function Home() {
       </main>
       <TravoraIntro />
       <Destinations />
+      <Packages />
     </>
   );
 }
