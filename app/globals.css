@@ -161,11 +161,77 @@ html.hero-js:not(.hero-anim-ready) [data-hero-anim] {
   font-family: Arial, sans-serif;
 }
 
-html.hero-js:not(.destinations-anim-ready) [data-destinations-anim] {
-  opacity: 0;
+@media (min-width: 480px) and (max-width: 991px) {
+  .package-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .package-image-wrapper {
+    max-width: none;
+  }
+
+  .package-image {
+    max-height: 18rem;
+  }
 }
 
-html.hero-js:not(.packages-anim-ready) [data-packages-anim] {
+@media (max-width: 479px) {
+  .package-card {
+    grid-template-columns: 1fr;
+    padding-bottom: 0.75rem;
+  }
+
+  .package-image-wrapper {
+    width: 100%;
+  }
+
+  .package-image {
+    max-height: 13rem;
+  }
+
+  .package-content-wrapper {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+@media (min-width: 480px) and (max-width: 991px) {
+  .package-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .package-image-wrapper {
+    max-width: none;
+  }
+
+  .package-image {
+    max-height: 18rem;
+  }
+}
+
+@media (max-width: 479px) {
+  .package-card {
+    grid-template-columns: 1fr;
+    padding-bottom: 0.75rem;
+  }
+
+  .package-image-wrapper {
+    width: 100%;
+  }
+
+  .package-image {
+    max-height: 13rem;
+  }
+
+  .package-content-wrapper {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
+html.hero-js:not(.destinations-anim-ready) [data-destinations-anim] {
   opacity: 0;
 }
 
@@ -174,9 +240,6 @@ html.hero-js:not(.packages-anim-ready) [data-packages-anim] {
     opacity: 1;
   }
 
-  html.hero-js:not(.packages-anim-ready) [data-packages-anim] {
-    opacity: 1;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -25,22 +25,36 @@ export function PackagesAnimation({ children }: { children: ReactNode }) {
     }
 
     const context = gsap.context(() => {
-      gsap.set(targets, { autoAlpha: 0, y: 36 });
-      gsap.to(targets, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.8,
-        stagger: 0.12,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: root,
-          start: "top 78%",
+      targets.forEach((target) => {
+        ScrollTrigger.create({
+          trigger: target,
+          start: "top 88%",
           once: true,
-        },
+          onEnter: () => {
+            gsap.fromTo(
+              target,
+              { opacity: 0, y: 32 },
+              {
+                opacity: 1,
+                y: 0,
+                duration: 0.75,
+                ease: "power2.out",
+              },
+            );
+          },
+        });
       });
+
+      ScrollTrigger.refresh();
     }, root);
 
-    return () => context.revert();
+    const refresh = () => ScrollTrigger.refresh();
+    window.addEventListener("load", refresh);
+
+    return () => {
+      window.removeEventListener("load", refresh);
+      context.revert();
+    };
   }, []);
 
   return (
