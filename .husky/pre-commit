@@ -1,1 +1,1 @@
-npx --no biome check --staged
+npx --no biome check --staged --no-errors-on-unmatched
