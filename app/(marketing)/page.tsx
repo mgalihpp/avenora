@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowButton } from "./_components/arrow-button";
+import { Destinations } from "./_components/destinations";
 import { HeroAnimation } from "./_components/hero-animation";
 import { HeroVideo } from "./_components/hero-video";
 import { MobileNav } from "./_components/mobile-nav";
@@ -123,6 +124,7 @@ export default function Home() {
         <HeroAnimation />
       </main>
       <TravoraIntro />
+      <Destinations />
     </>
   );
 }
