@@ -37,13 +37,11 @@ export function TravoraIntro() {
             />
           </div>
 
-          <div
-            data-travora-anim
-            className="flex max-w-[48rem] flex-col justify-center lg:pt-1"
-          >
+          <div className="flex max-w-[48rem] flex-col justify-center lg:pt-1">
             <h2
               id="travora-intro-heading"
-              className="font-display text-[clamp(2.25rem,4vw,3.75rem)] font-normal leading-[1.1] tracking-[-0.08em]"
+              data-travora-text
+              className="font-display text-[clamp(2rem,2.6vw,2.75rem)] font-normal leading-[1.08] tracking-[-0.06em]"
             >
               Travora creates personalized travel experiences for clients who
               value thoughtful planning, handpicked stays, private experiences,

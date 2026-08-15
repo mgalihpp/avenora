@@ -2,9 +2,10 @@
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import { type ReactNode, useEffect, useRef } from "react";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const REDUCED_MOTION = "(prefers-reduced-motion: reduce)";
 
@@ -17,6 +18,8 @@ export function TravoraIntroAnimation({ children }: { children: ReactNode }) {
 
     const targets = root.querySelectorAll<HTMLElement>("[data-travora-anim]");
     const values = root.querySelectorAll<HTMLElement>("[data-stat-value]");
+    const text = root.querySelector<HTMLElement>("[data-travora-text]");
+    const split = text ? new SplitText(text, { type: "words" }) : null;
     const setFinalValues = () => {
       values.forEach((element) => {
         element.textContent = element.dataset.statTarget ?? "0";
@@ -26,6 +29,7 @@ export function TravoraIntroAnimation({ children }: { children: ReactNode }) {
     if (window.matchMedia(REDUCED_MOTION).matches) {
       gsap.set(targets, { clearProps: "all" });
       setFinalValues();
+      split?.revert();
       return;
     }
 
@@ -48,6 +52,21 @@ export function TravoraIntroAnimation({ children }: { children: ReactNode }) {
         stagger: 0.12,
       });
 
+      if (split) {
+        gsap.set(split.words, { autoAlpha: 0.2 });
+        gsap.to(split.words, {
+          autoAlpha: 1,
+          ease: "none",
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: text,
+            start: "top 82%",
+            end: "bottom 42%",
+            scrub: 1,
+          },
+        });
+      }
+
       values.forEach((element) => {
         const counter = { value: 0 };
         const target = Number(element.dataset.statTarget ?? 0);
@@ -69,11 +88,14 @@ export function TravoraIntroAnimation({ children }: { children: ReactNode }) {
       });
     }, root);
 
-    return () => context.revert();
+    return () => {
+      context.revert();
+      split?.revert();
+    };
   }, []);
 
   return (
-    <div ref={rootRef} data-travora-intro className="bg-[#eaf3f8]">
+    <div ref={rootRef} data-travora-intro className="bg-[#ecf2f6]">
       {children}
     </div>
   );
