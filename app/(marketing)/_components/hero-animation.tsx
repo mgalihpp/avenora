@@ -27,9 +27,9 @@ export function HeroAnimation() {
     const card = document.querySelector<HTMLElement>('[data-hero-anim="card"]');
     if (!title || !heading || !button || !card) return;
 
-    const split = new SplitText(heading, { type: "chars" });
-    const chars = split.chars;
-    const stagger = 0.7 / chars.length;
+    const split = new SplitText(heading, { type: "words" });
+    const words = split.words;
+    const stagger = 0.7 / words.length;
 
     const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
     tl.fromTo(
@@ -39,7 +39,7 @@ export function HeroAnimation() {
       0,
     )
       .fromTo(
-        chars,
+        words,
         { autoAlpha: 0, yPercent: 70 },
         { autoAlpha: 1, yPercent: 0, duration: 0.7, stagger },
         0.57,
